@@ -12,9 +12,12 @@
     <div>출력 설명 : 첫 번째 줄에 가장 작은 수를 출력한다.</div>
     <script>
         function solution(a, b, c) {
-            let answer;
-            a > b ? b > c ? answer = c : answer = b : a > c ? answer = c : answer = a;
-            return answer;
+          if(a > 100 || b > 100 || c > 100) {
+            throw new Error('100 이하의 자연수를 입력하시오')
+          } 
+          let answer;
+          a > b ? b > c ? answer = c : answer = b : a > c ? answer = c : answer = a;
+          return answer;
         }
 
         console.log(solution(2, 5, 1));
