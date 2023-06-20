@@ -1,28 +1,44 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <style>
+      hr {
+        margin: 1.5vh;
+      }
+      body {
+        margin: 15px;
+      }
+    </style>
     <title>출력결과</title>
   </head>
   <body>
     <h1>세 수 중 최소값</h1>
-    <div>100이하의 자연수 A, B, C를 입력받아 세 수 가장 작은 값을 출력하는 프로그램을 작성하시오.
-    </br>(정렬을 사용하면 안됩니다.)
+    <div>
+      100이하의 자연수 A, B, C를 입력받아 세 수 가장 작은 값을 출력하는
+      프로그램을 작성하시오. <br />(정렬을 사용하면 안됩니다.)
     </div>
+    <hr />
     <div>입력 설명 : 첫 번째 줄에 100이하의 세 자연수가 입력된다.</div>
     <div>출력 설명 : 첫 번째 줄에 가장 작은 수를 출력한다.</div>
     <script>
-        function solution(a, b, c) {
-          if(a > 100 || b > 100 || c > 100) {
-            throw new Error('100 이하의 자연수를 입력하시오')
-          } 
-          let answer;
-          a > b ? b > c ? answer = c : answer = b : a > c ? answer = c : answer = a;
-          return answer;
+      function solution(a, b, c) {
+        if (a > 100 || b > 100 || c > 100) {
+          throw new Error("100 이하의 자연수를 입력하시오");
         }
+        let answer;
+        a > b
+          ? b > c
+            ? (answer = c)
+            : (answer = b)
+          : a > c
+          ? (answer = c)
+          : (answer = a);
+        return answer;
+      }
 
-        console.log(solution(2, 5, 1));
-        console.log(solution(6, 5, 11));
-        console.log(solution(1, 10, 5));
+      console.log(solution(2, 5, 1));
+      console.log(solution(6, 5, 11));
+      console.log(solution(1, 10, 5));
     </script>
   </body>
 </html>

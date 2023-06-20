@@ -1,31 +1,46 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <style>
+      hr {
+        margin: 1.5vh;
+      }
+      body {
+        margin: 15px;
+      }
+    </style>
     <title>출력결과</title>
   </head>
   <body>
     <h1>삼각형 판별하기</h1>
-    <div>길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어질 때, 이 세 막대로 삼각형을 만들 수 있으면
-    </br>"Yes"를 출력하고, 만들 수 없으면 "No"를 출력한다.
+    <div>
+      길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어질 때, 이 세 막대로
+      삼각형을 만들 수 있으면 <br />"Yes"를 출력하고, 만들 수 없으면 "No"를
+      출력한다.
     </div>
-    <div>입력 설명 : 첫 번째 줄에 100이하의 서로 다른 A, B, C 막대의 길이가 주어진다.</div>
+    <hr />
+    <div>
+      입력 설명 : 첫 번째 줄에 100이하의 서로 다른 A, B, C 막대의 길이가
+      주어진다.
+    </div>
     <div>출력 설명 : 첫 번째 줄에 "Yes", "No"를 출력한다.</div>
     <script>
-        function solution(a, b, c) {
-            if(a > 100 || b > 100 || c > 100) {
-                throw new Error('100 이하의 수를 입력하시오')
-            }
-            let answer = "Yes", max;
-            let sum = a+b+c;
-            if(a > b) max = a;
-            else max = b;
-            if(c>max) max = c;           
-            if((sum-max) <= max) answer = "No";
-            return answer;
+      function solution(a, b, c) {
+        if (a > 100 || b > 100 || c > 100) {
+          throw new Error("100 이하의 수를 입력하시오");
         }
+        let answer = "Yes",
+          max;
+        let sum = a + b + c;
+        if (a > b) max = a;
+        else max = b;
+        if (c > max) max = c;
+        if (sum - max <= max) answer = "No";
+        return answer;
+      }
 
-        console.log(solution(6, 7, 11));
-        console.log(solution(13, 33, 17));
+      console.log(solution(6, 7, 11));
+      console.log(solution(13, 33, 17));
     </script>
   </body>
 </html>

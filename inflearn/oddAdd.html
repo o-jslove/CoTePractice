@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      hr {
+        margin: 1.5vh;
+      }
+      body {
+        margin: 15px;
+      }
+    </style>
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>홀수</h1>
+    <div>
+      7개의 자연수가 주어질 때, 이들 중 홀수인 자연수들을 모두 골라 그 합을
+      구하고,
+      <br />고른 홀수들 중 최소값을 찾는 프로그램을 작성하세요. <br />예를 들어,
+      7개의 자연수 12, 77, 38, 41, 53, 92, 85가 주어지면 <br />이들 중 홀수는
+      77, 41, 53, 85 이므로 그 합은 77 + 41 + 53 + 85 = 256이 되고, <br />
+      41 &#60; 53 &#60; 77 &#60; 85 <br />이므로 홀수들 중 최소값은 41이 된다.
+    </div>
+    <hr />
+    <div>
+      입력 설명 : 첫 번째 줄에 자연수 7개가 주어진다. 주어지는 자연수는 100보다
+      작다. 홀수가 한 개 이상 반드시 존재한다.
+    </div>
+    <div>
+      출력 설명 : 첫 번째 줄에 홀수들의 합을 출력하고, 둘째 줄에 홀수들 중
+      최소값을 출력한다.
+    </div>
+    <script>
+      function solution(arr) {
+        let isOddArray = false;
+        let min = Number.MAX_SAFE_INTEGER;
+        let sum = 0;
+        for (let i of arr) {
+          if (i % 2 != 0) {
+            isOddArray = true;
+            sum += i;
+            if (i < min) min = i;
+          }
+          if (i > 100) {
+            throw new Error("100보다 작은 수를 입력하시오.");
+          }
+        }
+        if (isOddArray == false) {
+          throw new Error("홀수를 입력하시오.");
+        }
+        let answer = "합은 : " + sum + "\n최소값 : " + min;
+        return answer;
+      }
+      let arr1 = [12, 77, 38, 41, 53, 92, 85];
+      console.log(solution(arr1));
+    </script>
+  </body>
+</html>

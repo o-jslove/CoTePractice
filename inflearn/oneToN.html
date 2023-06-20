@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      hr {
+        margin: 1.5vh;
+      }
+      body {
+        margin: 15px;
+      }
+    </style>
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>1부터 N까지 합 출력하기</h1>
+    <div>
+      자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성하세요.
+    </div>
+    <hr />
+    <div>입력 설명 : 첫 번째 줄에 20이하의 자연수 N이 입력된다.</div>
+    <div>출력 설명 : 첫 번째 줄에 1부터 N까지의 합을 출력한다.</div>
+    <script>
+      function solution(n) {
+        if (n > 20) {
+          throw new Error("20이하의 자연수를 입력하시오");
+        }
+        let sum = 0;
+        for (let i = 1; i <= n; i++) {
+          sum += i;
+        }
+        return sum;
+      }
+
+      console.log(solution(6));
+      console.log(solution(10));
+    </script>
+  </body>
+</html>
