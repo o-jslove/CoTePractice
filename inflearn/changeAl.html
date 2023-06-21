@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      hr {
+        margin: 1.5vh;
+      }
+      body {
+        margin: 15px;
+      }
+    </style>
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>세 수 중 최소값</h1>
+    <div>
+      대문자로 이루어진 영어단어가 입력되면 단어에 포함된 'A'를 모두 '#'으로
+      바꾸어 출력하는 프로그램을 작성하세요.
+    </div>
+    <hr />
+    <div>입력 설명 : 첫 번째 줄에 문자열이 입력된다.</div>
+    <div>출력 설명 : 첫 번째 줄에 바뀐 단어를 출력한다.</div>
+    <script>
+      function solution(str) {
+        if (typeof str !== "string") {
+          // typeof의 값은 문자열로 반환된다.
+          throw new Error("문자열을 입력하여 주십시오.");
+        }
+        let result;
+        let strArr = str.split("");
+        result = strArr.map((v, i) => {
+          if (v === "A") {
+            return (v = "#");
+          } else {
+            return v;
+          }
+        });
+        return result.join("").trim();
+      }
+
+      console.log(solution("BANANA"));
+    </script>
+  </body>
+</html>

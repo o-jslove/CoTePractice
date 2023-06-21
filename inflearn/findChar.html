@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      hr {
+        margin: 1.5vh;
+      }
+      body {
+        margin: 15px;
+      }
+    </style>
+    <title>출력결과</title>
+  </head>
+  <body>
+    <h1>문자 찾기</h1>
+    <div>
+      한 개의 문자열을 입력받고, 특정 문자를 입력받아 해당 특정문자가 입력받은
+      문자열에 몇 개
+      <br />존재하는지 알아내는 프로그램을 작성하세요. <br />문자열의 길이는
+      100을 넘지 않습니다.
+    </div>
+    <hr />
+    <div>
+      입력 설명 : 첫 줄에 문자열이 주어지고, 두 번째 줄에 문자가 주어진다.
+    </div>
+    <div>출력 설명 : 첫 줄에 해당 문자의 개수를 출력한다.</div>
+    <script>
+      function solution(str, c) {
+        if (str.length > 100) {
+          throw new Error(
+            "문자열의 길이는 100을 넘으면 안됩니다.(현재 문자열 길이가 100이상이라는 뜻)"
+          );
+        }
+        let s = str;
+        // 문자열에서 이런 방식의 대입은 무조건 깊은 복사. 반대로, 배열이 이와 같이 대입하면 얕은 복사(주소 참조)를 한다.
+        // 물론 배열도 slice를 통해 깊은 복사를 할 수 있다.
+        // 만약 s의 내부 값이 변하더라도 깊은 복사이기 때문에 str의 내부 문자열은 변하지 않는다.
+        let count = 0;
+        let searchChar = c;
+        let pos = s.indexOf(searchChar);
+
+        while (pos !== -1) {
+          count++;
+          pos = s.indexOf(searchChar, pos + 1);
+        }
+        return count;
+      }
+
+      console.log(solution("COMPUTERPROGRAMMING", "R"));
+    </script>
+  </body>
+</html>

@@ -32,7 +32,7 @@
     <div>출력 설명 : 입력된 순서대로 일곱 난쟁이의 키를 출력한다.</div>
     <script>
       function solution(arr) {
-        let answer = arr;
+        let answer = arr; // 이런식으로 parameter arr 배열을 변수에 저장하여 사용해야 한다.
         let sum = answer.reduce((a, b) => a + b, 0);
         if (answer.length !== 9) {
           throw new Error("난쟁이의 수가 맞지 않습니다.");
@@ -49,18 +49,22 @@
         ) {
           throw new Error("중복되는 키 값이 있습니다.");
         }
+        let flag = 0;
         for (let i = 0; i < 8; i++) {
           for (let j = i + 1; j < 9; j++) {
             if (sum - (answer[i] + answer[j]) == 100) {
               answer.splice(j, 1);
               answer.splice(i, 1);
+              flag = 1;
+              break;
             }
           }
+          if (flag == 1) break;
         }
         return answer;
       }
 
-      let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+      let arr = [22, 7, 21, 19, 10, 15, 25, 8, 13];
       console.log(solution(arr));
     </script>
   </body>
